@@ -6,63 +6,76 @@
     <title>Landingpage</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            color: white;
         }
         header {
-            background-color: #333;
-            color: white;
-            padding: 10px 20px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 15px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
             position: relative;
         }
-        header .menu-button {
-            background-color: #444;
+        header h1 {
+            font-size: 24px;
+            letter-spacing: 2px;
+        }
+        .menu-button {
+            background: #ff4c29;
             color: white;
             border: none;
             padding: 10px 20px;
             cursor: pointer;
             font-size: 16px;
+            transition: 0.3s;
+        }
+        .menu-button:hover {
+            background: #ff5722;
         }
         .menu {
             display: none;
             position: absolute;
             top: 72px;
             right: 20px;
-            background-color: #333;
-            border: 1px solid #444;
+            background: rgba(0, 0, 0, 0.9);
             border-radius: 5px;
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.7);
             z-index: 1000;
         }
         .menu a {
             display: block;
             color: white;
             text-decoration: none;
-            padding: 10px 20px;
+            padding: 12px 20px;
             font-size: 16px;
+            transition: 0.3s;
         }
         .menu a:hover {
-            background-color: #444;
+            background: #ff4c29;
         }
         footer {
-            background-color: #333;
-            color: white;
+            background: rgba(0, 0, 0, 0.8);
             text-align: center;
-            padding: 10px 20px;
+            padding: 15px;
             position: fixed;
             bottom: 0;
             width: 100%;
+            font-size: 14px;
         }
         #map {
             height: 500px;
             width: 100%;
+            border: 2px solid #ff4c29;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.7);
         }
         .content {
             margin: 20px;
+            text-align: center;
         }
     </style>
 </head>
@@ -96,7 +109,6 @@
         menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
     }
 
-    // Close menu when clicking outside
     document.addEventListener('click', function(event) {
         const menu = document.getElementById('menu');
         const button = document.querySelector('.menu-button');
