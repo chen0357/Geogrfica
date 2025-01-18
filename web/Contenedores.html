@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Zonas</title>
+    <title>Contenedores</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -73,7 +73,7 @@
     <h1>WebMap Portfolio</h1>
     <button class="menu-button" onclick="toggleMenu()">Menú</button>
     <div class="menu" id="menu">
-        <a href="Landingpage.html">Captura de Pantalla (Práctica 1)</a>
+        <a href="../Landingpage.html">Captura de Pantalla (Práctica 1)</a>
         <a href="Temperaturas.html">Mapa de Temperaturas y Precipitaciones (Práctica 3)</a>
         <a href="Zonas.html">Capa Zonas Válidas (Práctica 4)</a>
         <a href="Resultados.html">Tabla de Resultados y Gráfico (Práctica 7)</a>
@@ -82,9 +82,20 @@
         <a href="Geotiff.html">Imágenes GeoTIFF Índice (Práctica 10)</a>
     </div>
 </header>
-
 <div class="content">
-    <div id="map"></div>
+    <h1>Accidentes y Contenedores Madrid</h1>
+    <label for="map-select">Seleccione un mapa:</label>
+    <select id="map-select" onchange="changeMap()">
+        <option value="document/Accidentes_Madrid_Chen%20Yixuan.html">Mapa de Accidentes Madrid</option>
+        <option value="document/Contenedores_Chen%20Yixuan.html">Mapa de Contenedores </option>
+    </select>
+    <iframe
+            id="map-frame"
+            src="../document/Accidentes_Madrid_Chen%20Yixuan.html"
+            width="100%"
+            height="600px"
+            style="border:none;">
+    </iframe>
 </div>
 
 <footer>
@@ -105,7 +116,13 @@
             menu.style.display = 'none';
         }
     });
-</script>
 
+    // Change the map displayed in the iframe
+    function changeMap() {
+        const select = document.getElementById('map-select');
+        const iframe = document.getElementById('map-frame');
+        iframe.src = select.value;
+    }
+</script>
 </body>
 </html>
