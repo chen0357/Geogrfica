@@ -84,12 +84,24 @@
 </header>
 
 <div class="content">
-    <div id="map"></div>
+    <h1>Accidentes y Contenedores Madrid</h1>
+    <label for="map-select">Seleccione un mapa:</label>
+    <select id="map-select" onchange="changeMap()">
+        <option value="../document/Practica9.html">Mapa de GeoTIFF</option>
+    </select>
+    <iframe
+            id="map-frame"
+            src="../document/Practica9.html"
+            width="100%"
+            height="600px"
+            style="border:none;">
+    </iframe>
 </div>
 
 <footer>
     <p>Portafolio de WebMapping | Curso de Tecnologías de la Información Geográfica</p>
 </footer>
+
 
 <script>
     function toggleMenu() {
@@ -105,6 +117,13 @@
             menu.style.display = 'none';
         }
     });
+
+    // Change the map displayed in the iframe
+    function changeMap() {
+        const select = document.getElementById('map-select');
+        const iframe = document.getElementById('map-frame');
+        iframe.src = select.value;
+    }
 </script>
 </body>
 </html>
