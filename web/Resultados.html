@@ -2,9 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resultados</title>
     <style>
         body {
@@ -66,9 +64,13 @@
         .content {
             margin: 20px;
         }
-        .image-container {
+        .table-container {
+            display: none;
             margin-top: 20px;
+        }
+        .image-container {
             text-align: center;
+            margin-top: 20px;
         }
         .image-container img {
             max-width: 100%;
@@ -95,19 +97,30 @@
 <div class="content">
     <h1>Resultados y Gráficos</h1>
 
-    <!-- Embed resultados.html -->
-    <iframe
-            id="resultados-frame"
-            src="../document/resultados.html"
-            width="100%"
-            height="600px"
-            style="border:none;">
-    </iframe>
+    <!-- Dropdown to select table -->
+    <label for="table-select">Seleccione una tabla:</label>
+    <select id="table-select" onchange="switchTable()">
+        <option value="resultados">Tabla de Resultados</option>
+        <option value="grafico">Gráfico de Rendimiento</option>
+    </select>
 
-    <!-- Display grafico_rendimiento.jpg -->
-    <div class="image-container">
-        <h2>Gráfico de Rendimiento</h2>
-        <img src="../document/grafico_rendimiento.jpg" alt="Gráfico de Rendimiento">
+    <!-- Table 1: Resultados -->
+    <div class="table-container" id="resultados">
+        <iframe
+                id="resultados-frame"
+                src="../document/resultados.html"
+                width="100%"
+                height="600px"
+                style="border:none;">
+        </iframe>
+    </div>
+
+    <!-- Table 2: Gráfico -->
+    <div class="table-container" id="grafico">
+        <div class="image-container">
+            <h2>Gráfico de Rendimiento</h2>
+            <img src="../document/grafico_rendimiento.jpg" alt="Gráfico de Rendimiento">
+        </div>
     </div>
 </div>
 
@@ -121,6 +134,22 @@
         menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
     }
 
+    function switchTable() {
+        const select = document.getElementById('table-select');
+        const value = select.value;
+
+        // Hide all tables
+        document.querySelectorAll('.table-container').forEach(table => {
+            table.style.display = 'none';
+        });
+
+        // Show selected table
+        const selectedTable = document.getElementById(value);
+        if (selectedTable) {
+            selectedTable.style.display = 'block';
+        }
+    }
+
     // Close menu when clicking outside
     document.addEventListener('click', function(event) {
         const menu = document.getElementById('menu');
@@ -129,6 +158,11 @@
             menu.style.display = 'none';
         }
     });
+
+    // Show the first table by default
+    window.onload = function() {
+        switchTable();
+    }
 </script>
 </body>
 </html>

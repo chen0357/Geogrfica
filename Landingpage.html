@@ -61,8 +61,10 @@
         }
         iframe {
             border: none;
-            width: 100%;
+            width: 50%; /* 调整宽度以适应屏幕 */
             height: calc(100vh - 100px); /* 全屏显示，减去 header 和 footer 的高度 */
+            margin: 0 auto; /* 水平居中 */
+            display: block; /* 确保 margin: auto 生效 */
         }
     </style>
 </head>
@@ -72,15 +74,15 @@
     <button class="menu-button" onclick="toggleMenu()">Menú</button>
     <div class="menu" id="menu">
         <a href="../Landingpage.html">Captura de Pantalla (Práctica 1)</a>
-        <a href="Temperaturas.html">Mapa de Temperaturas y Precipitaciones (Práctica 3)</a>
-        <a href="Zonas.html">Capa Zonas Válidas (Práctica 4)</a>
-        <a href="Resultados.html">Tabla de Resultados y Gráfico (Práctica 7)</a>
-        <a href="Contenedores.html">Contenedores y Accidentes Madrid (Práctica 8)</a>
-        <a href="Savi.html">Imágenes GeoTIFF SAVI y EVI (Práctica 9)</a>
-        <a href="Geotiff.html">Imágenes GeoTIFF Índice (Práctica 10)</a>
+        <a href="web/Temperaturas.html">Mapa de Temperaturas y Precipitaciones (Práctica 3)</a>
+        <a href="web/Zonas.html">Capa Zonas Válidas (Práctica 4)</a>
+        <a href="web/Resultados.html">Tabla de Resultados y Gráfico (Práctica 7)</a>
+        <a href="web/Contenedores.html">Contenedores y Accidentes Madrid (Práctica 8)</a>
+        <a href="web/Savi.html">Imágenes GeoTIFF SAVI y EVI (Práctica 9)</a>
+        <a href="web/Geotiff.html">Imágenes GeoTIFF Índice (Práctica 10)</a>
     </div>
 </header>
-
+<h1>Captura de pantalla </h1>
 <iframe src="../pdf/Pra1.jpg" title="Mapa PDF"></iframe>
 
 <footer>
